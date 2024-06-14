@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <playground version='6.0' target-platform='ios' display-mode='rendered'>
-<pages>
-    <page name='Introduction'/>
+    <pages>
+        <page name='Introduction'/>
         <page name='Complete concurrency enabled by default'/>
         <page name='count(where)'/>
         <page name='Typed throws'/>

@@ -20,7 +20,7 @@ struct Photocopier {
     var pagesRemaining: Int
     
     mutating func copy(count: Int) throws(CopierError) {
-        guard count >= pagesRemaining else {
+        guard count <= pagesRemaining else {
             throw CopierError.outOfPaper
         }
     
@@ -34,7 +34,7 @@ Now we can write code to attempt photocopying, catching the single error that ca
 */
 do {
     var copier = Photocopier(pagesRemaining: 100)
-    try copier.copy(count: 10)
+    try copier.copy(count: 101)
 } catch CopierError.outOfPaper {
     print("Please refill the paper")
 }
@@ -51,7 +51,7 @@ Where this gets really clever is that `throws(any Error)` is equivalent to using
 
 As an example, Swift 6's new `count(where:)` method accepts a closure used to evaluate how many items match whatever kind of filter you're running. That closure might throw errors, and if it does `count(where:)` will throw that same error type:
 */
-public func count<E>(
+public func count<E, Element>(
     where predicate: (Element) throws(E) -> Bool
 ) throws(E) -> Int {
     print("Code goes here")
