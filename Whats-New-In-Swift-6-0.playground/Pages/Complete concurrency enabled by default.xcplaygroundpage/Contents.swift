@@ -20,6 +20,8 @@ Before Swift 6 the compiler was very strict: if you had a non-sendable value on 
 
 You can see the problem with the following code:
 */
+import SwiftUI
+
 class User {
     var name = "Anonymous"
 }
