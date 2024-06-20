@@ -51,7 +51,7 @@ Where this gets really clever is that `throws(any Error)` is equivalent to using
 
 As an example, Swift 6's new `count(where:)` method accepts a closure used to evaluate how many items match whatever kind of filter you're running. That closure might throw errors, and if it does `count(where:)` will throw that same error type:
 */
-public func count<E, Element>(
+public func count<E>(
     where predicate: (Element) throws(E) -> Bool
 ) throws(E) -> Int {
     print("Code goes here")
